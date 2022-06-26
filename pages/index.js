@@ -52,12 +52,12 @@ export const getServerSideProps = async () => {
     }),
   });
 
-  const data = await res.json();
+  const { data } = await res.json();
 
   return {
     props: {
-      posts: data.data.posts,
-      generalSettings: data.data.generalSettings,
+      posts: data.posts,
+      generalSettings: data.generalSettings,
       data,
     },
   };

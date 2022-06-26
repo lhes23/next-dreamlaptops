@@ -2,18 +2,57 @@ import React, { useState, useEffect } from "react";
 
 const PostDetails = ({ post }) => {
   const [render, setRender] = useState(false);
-  const { title, content, featuredImage } = post;
+  const { title, content, featuredImage, author } = post;
+  const { name } = author.node;
 
   useEffect(() => {
     setRender(true);
   }, []);
 
   return (
-    <div>
-      <img src={featuredImage.node.sourceUrl} alt="" />
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: render && content }}></div>
-    </div>
+    <>
+      <div>
+        <img src={featuredImage.node.sourceUrl} alt="" />
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: render && content }}></div>
+      </div>
+
+      <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
+        <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
+          <img
+            src={featuredImage.node.sourceUrl}
+            alt=""
+            className="w-full h-60 sm:h-96 dark:bg-gray-500"
+          />
+          <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
+            <div className="space-y-2">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="inline-block text-2xl font-semibold sm:text-3xl"
+              >
+                {title}
+              </a>
+              <p className="text-xs dark:text-gray-400">
+                By{" "}
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="text-xs hover:underline"
+                >
+                  {name}
+                </a>
+              </p>
+            </div>
+            <div className="dark:text-gray-100">
+              <div
+                dangerouslySetInnerHTML={{ __html: render && content }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
@@ -40,6 +79,11 @@ export async function getStaticProps(ctx) {
             }
             slug
             title
+            author {
+              node {
+                name
+              }
+            }
           }
         }
           `,
