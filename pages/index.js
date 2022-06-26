@@ -1,9 +1,10 @@
 import Head from "next/head";
 import BlogSection from "../components/BlogSection";
 import HeroSection from "../components/HeroSection";
+import Nav from "../components/Nav";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ posts, generalSettings, data }) {
+export default function Home({ posts, generalSettings, menu, data }) {
   console.log(posts);
   console.log(data);
   const { title, description } = generalSettings;
@@ -17,6 +18,7 @@ export default function Home({ posts, generalSettings, data }) {
       </Head>
 
       <main className="">
+        <Nav />
         <HeroSection title={title} description={description} />
         <BlogSection posts={posts} />
       </main>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../components/Nav";
 
 const PostDetails = ({ post }) => {
   const [render, setRender] = useState(false);
@@ -11,16 +12,11 @@ const PostDetails = ({ post }) => {
 
   return (
     <>
-      <div>
-        <img src={featuredImage.node.sourceUrl} alt="" />
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: render && content }}></div>
-      </div>
-
+      <Nav />
       <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
-            src={featuredImage.node.sourceUrl}
+            src={featuredImage?.node.sourceUrl}
             alt=""
             className="w-full h-60 sm:h-96 dark:bg-gray-500"
           />
