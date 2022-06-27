@@ -4,9 +4,7 @@ import HeroSection from "../components/HeroSection";
 import Nav from "../components/Nav";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ posts, generalSettings, menu, data }) {
-  console.log(posts);
-  console.log(data);
+export default function Home({ posts, generalSettings }) {
   const { title, description } = generalSettings;
 
   return (
@@ -60,7 +58,6 @@ export const getServerSideProps = async () => {
     props: {
       posts: data.posts,
       generalSettings: data.generalSettings,
-      data,
     },
   };
 };

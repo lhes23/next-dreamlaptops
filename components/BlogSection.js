@@ -35,32 +35,35 @@ const BlogSection = ({ posts }) => {
           </a>
         </Link>
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.nodes.slice(1).map((post) => {
-            return (
-              <Link key={post.slug} href={`/${post.slug}`}>
-                <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
-                  <img
-                    role="presentation"
-                    className="object-cover w-full rounded h-44 dark:bg-gray-500"
-                    src={post.featuredImage.node.sourceUrl}
-                    alt=""
-                  />
-                  <div className="p-6 space-y-2">
-                    <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-                      {post.title}
-                    </h3>
-                    <span className="text-xs dark:text-gray-400">
-                      {new Date(post.modified).toDateString()}
-                    </span>
+          {posts.nodes
+            .slice(1)
+            .map((post) => {
+              return (
+                <Link key={post.slug} href={`/${post.slug}`}>
+                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
+                    <img
+                      role="presentation"
+                      className="object-cover w-full rounded h-44 dark:bg-gray-500"
+                      src={post.featuredImage.node.sourceUrl}
+                      alt=""
+                    />
+                    <div className="p-6 space-y-2">
+                      <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                        {post.title}
+                      </h3>
+                      <span className="text-xs dark:text-gray-400">
+                        {new Date(post.modified).toDateString()}
+                      </span>
 
-                    <div
-                      dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                    ></div>
-                  </div>
-                </a>
-              </Link>
-            );
-          })}
+                      <div
+                        dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                      ></div>
+                    </div>
+                  </a>
+                </Link>
+              );
+            })
+            .sort()}
         </div>
       </div>
     </section>
