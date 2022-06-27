@@ -27,7 +27,10 @@ const Nav = ({ data }) => {
             </Link>
           </li>
         </ul>
-        <button className="flex justify-end p-4 md:hidden">
+        <button
+          className="flex justify-end p-4 md:hidden"
+          area-label="Button Menu for mobile"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -8,4 +8,8 @@ module.exports = {
   images: {
     domains: ["dreamlaptops.com"],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
