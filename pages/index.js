@@ -24,7 +24,7 @@ export default function Home({ posts, generalSettings }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const res = await fetch("https://dreamlaptops.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
