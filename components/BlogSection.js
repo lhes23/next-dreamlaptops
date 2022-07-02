@@ -18,9 +18,9 @@ const BlogSection = ({ posts }) => {
         <Link href={`/${slug}`}>
           <a className="max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline grid lg:grid-cols-2 dark:bg-gray-900">
             <div className="relative">
-              <img
+              <Image
                 src={featuredImage?.node.sourceUrl}
-                alt=""
+                alt={featuredTitle}
                 className="h-64 object-cover rounded sm:h-96  dark:bg-gray-500"
                 layout="fill"
               />
@@ -42,13 +42,16 @@ const BlogSection = ({ posts }) => {
             .map((post) => {
               return (
                 <Link key={post.slug} href={`/${post.slug}`}>
-                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
-                    <img
-                      role="presentation"
-                      className="object-cover w-full rounded h-44 dark:bg-gray-500"
-                      src={post.featuredImage.node.sourceUrl}
-                      alt=""
-                    />
+                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900 shadow-md">
+                    <div className="relative w-full h-44">
+                      <Image
+                        role="presentation"
+                        className="object-cover  rounded dark:bg-gray-500"
+                        src={post.featuredImage.node.sourceUrl}
+                        alt=""
+                        layout="fill"
+                      />
+                    </div>
                     <div className="p-6 space-y-2">
                       <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
                         {post.title}
