@@ -4,14 +4,14 @@ import Image from "next/image";
 const HeroSection = ({ title, description }) => {
   return (
     <>
-      <section className="bg-gradient-to-tr from-pink-200 to-purple-200 rounded shadow">
+      <section className="rounded shadow bg-[url('https://dreamlaptops.com/wp-content/uploads/2021/06/tech-19.jpg')]">
         <div className="container flex flex-col justify-center text-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-            <h1 className="text-5xl font-bold leading-none sm:text-6xl">
+            <h1 className="text-5xl font-bold leading-none sm:text-6xl text-white drop-shadow">
               {title}
             </h1>
             <div
-              className="mt-6 mb-8 text-lg sm:mb-12"
+              className="mt-6 mb-8 text-lg sm:mb-12 text-white drop-shadow"
               dangerouslySetInnerHTML={{ __html: description }}
             ></div>
           </div>

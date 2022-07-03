@@ -13,15 +13,15 @@ const BlogSection = ({ posts }) => {
   } = posts.nodes[0];
 
   return (
-    <section className="bg-orange-200 mt-4 rounded">
+    <section className="mt-4 rounded">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <Link href={`/${slug}`}>
-          <a className="max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline grid lg:grid-cols-2 dark:bg-gray-900">
+          <a className="max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline grid lg:grid-cols-2 bg-white rounded">
             <div className="relative">
               <Image
                 src={featuredImage?.node.sourceUrl}
                 alt={featuredTitle}
-                className="h-64 object-cover rounded sm:h-96  dark:bg-gray-500"
+                className="h-64 object-cover rounded sm:h-96"
                 layout="fill"
               />
             </div>
@@ -29,7 +29,7 @@ const BlogSection = ({ posts }) => {
               <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
                 {featuredTitle}
               </h3>
-              <span className="text-xs dark:text-gray-400">
+              <span className="text-xs">
                 {new Date(modified).toDateString()}
               </span>
               <div dangerouslySetInnerHTML={{ __html: excerpt }}></div>
@@ -42,7 +42,7 @@ const BlogSection = ({ posts }) => {
             .map((post) => {
               return (
                 <Link key={post.slug} href={`/${post.slug}`}>
-                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900 shadow-md">
+                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-white shadow-md">
                     <div className="relative w-full h-44">
                       <Image
                         role="presentation"

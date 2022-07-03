@@ -15,7 +15,7 @@ export default function Home({ posts, generalSettings }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="">
+      <main className="bg-gray-300">
         <Nav />
         <HeroSection title={title} description={description} />
         <BlogSection posts={posts} />
