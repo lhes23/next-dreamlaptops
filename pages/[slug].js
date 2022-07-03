@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import PostLayout from "../components/PostLayout";
 
-const PostDetails = ({ post }) => {
+const PostDetails = ({ post, posts }) => {
   const [render, setRender] = useState(false);
   const { title, content, featuredImage, author } = post;
   const { name } = author.node;
@@ -14,7 +14,7 @@ const PostDetails = ({ post }) => {
   return (
     <>
       <Nav />
-      <PostLayout>
+      <PostLayout posts={posts}>
         <div className="p-2 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
           <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
             <img
@@ -83,16 +83,35 @@ export async function getStaticProps(ctx) {
                 name
               }
             }
+          },
+          posts {
+            nodes {
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              slug
+              title
+              content
+              modified
+              excerpt
+            }
+          }
+          generalSettings {
+            title
+            description
           }
         }
           `,
     }),
   });
 
-  const data = await res.json();
+  const { data } = await res.json();
   return {
     props: {
-      post: data.data.post,
+      post: data.post,
+      posts: data.posts,
     },
   };
 }
