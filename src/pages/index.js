@@ -2,7 +2,7 @@ import Head from "next/head";
 import BlogSection from "../components/BlogSection";
 import HeroSection from "../components/HeroSection";
 import Nav from "../components/Nav";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 export default function Home({ posts, generalSettings }) {
   const { title, description } = generalSettings;
