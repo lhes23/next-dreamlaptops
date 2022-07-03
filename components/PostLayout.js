@@ -3,9 +3,9 @@ import Link from "next/link";
 const PostLayout = ({ children, posts }) => {
   return (
     <>
-      <section className="px-5 py-10 dark:bg-gray-800 dark:text-gray-100">
+      <section className="px-5 py-10 bg-gray-200">
         <div className="container grid grid-cols-12 mx-auto gap-y-6 md:gap-10">
-          <div className="relative flex col-span-12 bg-center bg-no-repeat bg-cover lg:col-span-8 md:col-span-9 min-h-96 backdrop-blur bg-white/30">
+          <div className="relative flex col-span-12 bg-center bg-no-repeat bg-cover lg:col-span-8 md:col-span-9 min-h-96 backdrop-blur shadow-lg rounded bg-white/70">
             {children}
           </div>
           <div className="hidden py-2 xl:col-span-3 lg:col-span-4 md:hidden lg:block">

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import PostLayout from "../components/PostLayout";
+import Head from "next/head";
 
 const PostDetails = ({ post, posts }) => {
   const [render, setRender] = useState(false);
-  const { title, content, featuredImage, author } = post;
+  const { title, content, featuredImage, author, excerpt } = post;
   const { name } = author.node;
 
   useEffect(() => {
@@ -13,24 +14,25 @@ const PostDetails = ({ post, posts }) => {
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={excerpt} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Nav />
       <PostLayout posts={posts}>
-        <div className="p-2 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
+        <div className="p-2 mx-auto sm:p-8 dark:bg-gray-800 dark:text-gray-100">
           <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
             <img
               src={featuredImage?.node.sourceUrl}
               alt=""
               className="w-full h-60 sm:h-96 dark:bg-gray-500"
             />
-            <div className="p-2 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
+            <div className="p-2 pb-12 m-4 mx-auto space-y-6 lg:max-w-2xl sm:px-8 sm:mx-12 lg:rounded-md dark:bg-gray-900">
               <div className="space-y-2">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="inline-block text-2xl font-semibold sm:text-3xl"
-                >
+                <h1 className="inline-block text-2xl font-semibold sm:text-3xl">
                   {title}
-                </a>
+                </h1>
                 <p className="text-xs dark:text-gray-400">
                   By{" "}
                   <a
