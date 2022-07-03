@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
+import PostLayout from "../components/PostLayout";
 
 const PostDetails = ({ post }) => {
   const [render, setRender] = useState(false);
@@ -13,41 +14,43 @@ const PostDetails = ({ post }) => {
   return (
     <>
       <Nav />
-      <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
-        <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-          <img
-            src={featuredImage?.node.sourceUrl}
-            alt=""
-            className="w-full h-60 sm:h-96 dark:bg-gray-500"
-          />
-          <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
-            <div className="space-y-2">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="inline-block text-2xl font-semibold sm:text-3xl"
-              >
-                {title}
-              </a>
-              <p className="text-xs dark:text-gray-400">
-                By{" "}
+      <PostLayout>
+        <div className="p-2 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
+          <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
+            <img
+              src={featuredImage?.node.sourceUrl}
+              alt=""
+              className="w-full h-60 sm:h-96 dark:bg-gray-500"
+            />
+            <div className="p-2 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
+              <div className="space-y-2">
                 <a
                   rel="noopener noreferrer"
                   href="#"
-                  className="text-xs hover:underline"
+                  className="inline-block text-2xl font-semibold sm:text-3xl"
                 >
-                  {name}
+                  {title}
                 </a>
-              </p>
-            </div>
-            <div className="dark:text-gray-100">
-              <div
-                dangerouslySetInnerHTML={{ __html: render && content }}
-              ></div>
+                <p className="text-xs dark:text-gray-400">
+                  By{" "}
+                  <a
+                    rel="noopener noreferrer"
+                    href="#"
+                    className="text-xs hover:underline"
+                  >
+                    {name}
+                  </a>
+                </p>
+              </div>
+              <div className="dark:text-gray-100">
+                <div
+                  dangerouslySetInnerHTML={{ __html: render && content }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </PostLayout>
     </>
   );
 };
@@ -121,7 +124,7 @@ export async function getStaticPaths() {
   const posts = data.data.posts.nodes;
 
   const paths = posts.map((post) => ({ params: { slug: post.slug } }));
-  console.log(paths);
+  // console.log(paths);
 
   return {
     paths,

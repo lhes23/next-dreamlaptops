@@ -1,8 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Nav = ({ data }) => {
-  console.log(data);
+const Nav = () => {
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
@@ -53,30 +52,30 @@ const Nav = ({ data }) => {
 
 export default Nav;
 
-export const getServerSideProps = async () => {
-  const res = await fetch("https://dreamlaptops/graphql", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      query: `menu(id: "secondary-menu", idType: SLUG) {
-                name
-                slug
-                menuItems {
-                  edges {
-                    node {
-                      label
-                    }
-                  }
-                }
-              }`,
-    }),
-  });
+// export const getServerSideProps = async () => {
+//   const res = await fetch("https://dreamlaptops/graphql", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       query: `menu(id: "secondary-menu", idType: SLUG) {
+//                 name
+//                 slug
+//                 menuItems {
+//                   edges {
+//                     node {
+//                       label
+//                     }
+//                   }
+//                 }
+//               }`,
+//     }),
+//   });
 
-  const { data } = res.json();
-  console.log(res);
-  return {
-    props: {
-      data,
-    },
-  };
-};
+//   const { data } = res.json();
+//   console.log(res);
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// };

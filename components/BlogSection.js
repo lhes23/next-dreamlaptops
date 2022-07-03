@@ -13,7 +13,7 @@ const BlogSection = ({ posts }) => {
   } = posts.nodes[0];
 
   return (
-    <section className="bg-orange-600 mt-4 rounded">
+    <section className="bg-orange-200 mt-4 rounded">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <Link href={`/${slug}`}>
           <a className="max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline grid lg:grid-cols-2 dark:bg-gray-900">
