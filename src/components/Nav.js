@@ -3,7 +3,7 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <header className="p-4 bg-orange-200 backdrop-blur">
+    <header className="p-4 bg-gradient-to-tr from-rose-200 to-orange-400 backdrop-blur">
       <div className="container flex justify-between h-16 mx-auto">
         <Link href="/">
           <a
