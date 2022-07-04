@@ -8,8 +8,6 @@ import Footer from "../components/Footer";
 export default function Home({ posts, generalSettings }) {
   const { title, description } = generalSettings;
 
-  console.log(process.env.baseUrl);
-
   return (
     <div className={styles.container}>
       <Head>
