@@ -3,7 +3,7 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <header className="p-4 bg-orange-200 backdrop-blur mb-4">
+    <header className="p-4 bg-orange-200 backdrop-blur">
       <div className="container flex justify-between h-16 mx-auto">
         <Link href="/">
           <a

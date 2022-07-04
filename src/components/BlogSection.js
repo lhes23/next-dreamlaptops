@@ -42,7 +42,7 @@ const BlogSection = ({ posts }) => {
             .map((post) => {
               return (
                 <Link key={post.slug} href={`/${post.slug}`}>
-                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-white shadow-md">
+                  <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-white shadow-md hover:scale-105">
                     <div className="relative w-full h-44">
                       <Image
                         role="presentation"
