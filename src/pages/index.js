@@ -3,6 +3,7 @@ import BlogSection from "../components/BlogSection";
 import HeroSection from "../components/HeroSection";
 import Nav from "../components/Nav";
 import styles from "../../styles/Home.module.css";
+import Footer from "../components/Footer";
 
 export default function Home({ posts, generalSettings }) {
   const { title, description } = generalSettings;
@@ -20,6 +21,7 @@ export default function Home({ posts, generalSettings }) {
         <HeroSection title={title} description={description} />
         <BlogSection posts={posts} />
       </main>
+      <Footer title={title} />
     </div>
   );
 }

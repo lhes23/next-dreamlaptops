@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Footer from "./Footer";
 
 const PostLayout = ({ children, posts }) => {
   return (
@@ -43,6 +44,7 @@ const PostLayout = ({ children, posts }) => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
