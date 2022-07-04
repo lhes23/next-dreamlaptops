@@ -12,4 +12,7 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  env: {
+    baseUrl: "https://dreamlaptops.com/graphql",
+  },
 };

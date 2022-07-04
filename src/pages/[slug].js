@@ -60,7 +60,7 @@ const PostDetails = ({ post, posts }) => {
 export default PostDetails;
 
 export async function getStaticProps(ctx) {
-  const res = await fetch("https://dreamlaptops.com/graphql", {
+  const res = await fetch(process.env.baseUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -119,7 +119,7 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://dreamlaptops.com/graphql", {
+  const res = await fetch(process.env.baseUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

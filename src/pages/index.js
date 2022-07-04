@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 export default function Home({ posts, generalSettings }) {
   const { title, description } = generalSettings;
 
+  console.log(process.env.baseUrl);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -27,7 +29,7 @@ export default function Home({ posts, generalSettings }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://dreamlaptops.com/graphql", {
+  const res = await fetch(process.env.baseUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
