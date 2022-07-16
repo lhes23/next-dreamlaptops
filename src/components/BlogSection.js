@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const BlogSection = ({ posts }) => {
   const {
@@ -18,7 +17,7 @@ const BlogSection = ({ posts }) => {
         <Link href={`/${slug}`}>
           <a className="max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline grid lg:grid-cols-2 bg-white rounded">
             <div className="relative">
-              <Image
+              <img
                 src={featuredImage?.node.sourceUrl}
                 alt={featuredTitle}
                 className="h-64 object-cover rounded sm:h-96"
@@ -44,7 +43,7 @@ const BlogSection = ({ posts }) => {
                 <Link key={post.slug} href={`/${post.slug}`}>
                   <a className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-white shadow-md hover:scale-105">
                     <div className="relative w-full h-44">
-                      <Image
+                      <img
                         role="presentation"
                         className="object-cover  rounded dark:bg-gray-500"
                         src={post.featuredImage.node.sourceUrl}
