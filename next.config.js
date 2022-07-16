@@ -8,10 +8,6 @@ module.exports = {
   images: {
     domains: ["dreamlaptops.com"],
   },
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
   env: {
     baseUrl: "https://dreamlaptops.com/graphql",
   },
