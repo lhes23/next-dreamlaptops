@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 const HeroSection = ({ title, description }) => {
   return (
@@ -16,7 +15,7 @@ const HeroSection = ({ title, description }) => {
             ></div>
           </div>
           <div className="relative flex p-6 mt-8 w-full sm:w-1/2 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-            <Image
+            <img
               src="https://dreamlaptops.com/wp-content/uploads/2021/08/cropped-Dream-Laptops.png"
               alt=""
               layout="fill"
